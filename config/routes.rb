@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'pets#index'
+  root to: 'users#index'
 
-  get '/', to: 'pets#index'
+  get '/', to: 'users#index'
 
   resources :pets
   # The priority is based upon order of creation: first created -> highest priority.
