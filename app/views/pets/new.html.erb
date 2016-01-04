@@ -1,0 +1,48 @@
+<h2>Create A Post For Your Lost Pet</h2>
+<%= form_for @pet do |f| %>
+
+<div>
+ <h3> <%= f.label :name %></h3>
+  <%= f.text_field :name %>
+</div>
+
+<div>
+ <h3> <%= f.label :animal %></h3>
+  <%= f.text_field :animal %>
+</div>
+
+<div>
+  <h3><%= f.label :breed %></h3>
+  <%= f.text_field :breed %>
+</div>
+
+<div>
+ <h3><%= f.label :color %></h3>
+  <%= f.text_field :color %>
+</div>
+
+<div>
+  <h3><%= f.label :size %></h3>
+  <%= f.text_field :size %>
+</div>
+
+<div>
+  <h3><%= f.label :weight %></h3>
+  <%= f.text_field :weight %>
+</div>
+
+<div>
+  <h3><%= f.label :micro_chip %></h3>
+  <%= f.text_field :micro_chip %>
+</div>
+
+<div>
+  <h3><%= f.label :description %></h3>
+  <%= f.text_field :description %>
+</div>
+
+<div>
+  <%= f.submit "Click Here To Submit Your Lost Pet Ad" %>
+</div>
+
+<% end %>
