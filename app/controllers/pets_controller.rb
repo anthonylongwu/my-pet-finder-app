@@ -17,8 +17,6 @@ class PetsController < ApplicationController
   end
 
    def create
-    puts params
-    puts "$" * 500
 
     name = params[:pet][:name]
     animal = params[:pet][:animal]
@@ -40,6 +38,10 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+  end
+
+  def lost
+    @pet = Pet.new
   end
 
 

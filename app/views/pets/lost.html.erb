@@ -1,0 +1,40 @@
+<h2>Post if you've seen a pet wandering around!</h2>
+<%= form_for @pet do |f| %>
+
+
+<div>
+ <h3>Type of animal: <%= f.label :animal %></h3>
+  <%= f.text_field :animal %>
+</div>
+
+<div>
+  <h3>Breed of animal <%= f.label :breed %></h3>
+  <%= f.text_field :breed %>
+</div>
+
+<div>
+ <h3>Color of animal <%= f.label :color %></h3>
+  <%= f.text_field :color %>
+</div>
+
+<div>
+  <h3>Size of animal: <%= f.label :size %></h3>
+  <%= f.text_field :size %>
+</div>
+
+<div>
+  <h3>Weight of animal: <%= f.label :weight %> (Can be approx.)</h3>
+  <%= f.text_field :weight %>
+</div>
+
+
+<div>
+  <h3>Please post a small description: <%= f.label :description %></h3>
+  <%= f.text_area :description %>
+</div>
+
+<div>
+  <%= f.submit "Click Here To Submit If You've Seen/Found A Pet" %>
+</div>
+
+<% end %>
