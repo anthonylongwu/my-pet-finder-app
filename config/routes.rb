@@ -3,9 +3,16 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'users#index'
 
+  get '/users/sign_up ', to: 'devise/registrations#new'
   #get '/', to: 'users#index'
-  post '/pets/lost', to: 'pets#lost'
+  #post '/pets/lost', to: 'pets#lost'
   resources :pets
+
+  namespace :api do
+    namespace :v1 do
+      resources :pets
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

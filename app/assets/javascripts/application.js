@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require theme/bootstrap
 //= require theme/jquery
+//= require angular
+//= require app
 //= require_tree .
