@@ -6,4 +6,52 @@
             <!-- <a href="/pets/new?status=lost" class="btn btn-dark btn-lg">Lost A Pet?</a>
             <a href="/pets/new?status=found" class="btn btn-dark btn-lg">Found A Pet?</a> -->
         </div>
+      
+
+      
     </header>
+      
+      
+     
+       
+        
+           <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>All Pets</h2>
+                    <hr class="small">
+                    <div class="row">
+                     <% @pets.each do |pet| %>
+                        <div class="col-md-6">
+                       
+                                <a href="/pets/<%= pet.id %>">
+                            <div class="portfolio-item boring_border">
+                                  <p>Name: <%= pet.name %></p> 
+                                  <p><%= pet.animal %> </p> 
+                                  <p><%= pet.breed %> </p> 
+                                  <p><%= pet.color %> </p> 
+                                  <p><%= pet.size %> </p> 
+                                  <p><%= pet.weight %> </p> 
+                                  <p><%= pet.micro_chip %> </p> 
+                                  <p><%= pet.description %> </p> 
+                                 
+                                     
+                            </div>
+                                </a>
+                           
+                        </div>
+                         <% end %>  
+                       
+                    </div>
+                    <!-- /.row (nested) -->
+                    <a href="pets/?status=found" class="btn btn-dark">Search Found Pets</a>
+                    <a href="pets/?status=lost" class="btn btn-dark">Search Lost Pets</a>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>

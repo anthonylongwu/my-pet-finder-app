@@ -3,9 +3,12 @@ class PetsController < ApplicationController
   def index
     if params[:status] == "found"
       @pets = Pet.where(status: "found")
-    else
+    elsif params[:status] == "lost"
       @pets = Pet.where(status: "lost")
+    else 
+      @pets = Pet.all 
     end
+
   end
 
   def new
