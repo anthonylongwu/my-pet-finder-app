@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   root to: 'users#index'
 
   get '/users/sign_up ', to: 'devise/registrations#new'
+
   #get '/', to: 'users#index'
   #post '/pets/lost', to: 'pets#lost'
+  post '/pets/search', to: 'pets#search'
   resources :pets
 
   namespace :api do

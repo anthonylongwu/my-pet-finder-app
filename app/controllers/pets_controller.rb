@@ -37,6 +37,7 @@ class PetsController < ApplicationController
     # description = params[:pet][:description]
     #throw "abc"
     @pet = Pet.new(pet_params)
+    @pet.user_id = current_user.id 
     @pet.status = params[:status]
     if @pet.save
       flash[:success] = "Post Created"
@@ -49,9 +50,16 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
   end
+    
+  def search
+    @pets =  
+    search_term = params[:search]
+    @pets = Pet.where("name LIKE ? OR description LIKE ? OR size LIKE ? or weight LIKE ? or breed LIKE ?", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
+    render :index
+  end
 
   # def lost
-  #   @pet = Pet.new
+  #   @pet = Pet.new  
   # end
 
 private

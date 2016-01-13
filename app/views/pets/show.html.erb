@@ -1,19 +1,5 @@
-<!-- <table>
-<tr>
-<td>Pet's name: <%= @pet.name %></td>
-<td>Type of animal: <%= @pet.animal %></td>
-<td>Breed of pet: <%= @pet.breed %></td>
-<td>Size: <%= @pet.size %></td>
-<td>Weight: <%= @pet.weight %></td>
-<td>Microchip? <%= @pet.micro_chip %></td>
-<td>Description: <%= @pet.description %></td>
-<td>Image: <%= @pet.image %></td>
-</tr>
-</table> -->
 
-
-
-
+                                
 
 <p>Pet's name: <%= @pet.name %></p>
 <p>Type of animal: <%= @pet.animal %></p>
@@ -21,4 +7,16 @@
 <p>Size: <%= @pet.size %></p>
 <p>Weight: <%= @pet.weight %></p>
 <p>Microchip? <%= @pet.micro_chip %></p>
-<p>Description: <%= @pet.description %></p> 
+<p>Description: <%= @pet.description %></p>  
+
+    <aside class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3>Search Lost Or Found Pet Ads.</h3>
+                    <a href="/pets/?status=found" class="btn btn-lg btn-light">Search Found Pets</a>
+                    <a href="/pets/?status=lost" class="btn btn-lg btn-dark">Search Lost Pets</a>
+                </div>
+            </div>
+        </div>
+    </aside>
