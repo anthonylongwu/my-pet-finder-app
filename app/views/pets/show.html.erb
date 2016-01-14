@@ -8,6 +8,8 @@
 <p>Weight: <%= @pet.weight %></p>
 <p>Microchip? <%= @pet.micro_chip %></p>
 <p>Description: <%= @pet.description %></p>  
+<p>Photo: <%= image_tag (@pet.image) %></p>  
+<h4><%= link_to "Delete", "/pets/#{@pet.id}", method: :delete %></h4>
 
     <aside class="call-to-action bg-primary">
         <div class="container">

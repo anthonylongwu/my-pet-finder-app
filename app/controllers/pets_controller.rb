@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show, :search]
 
   def index
     if params[:status] == "found"
@@ -17,6 +18,11 @@ class PetsController < ApplicationController
   end
 
   def destroy
+    id = params[:id]
+    pet = Pet.find_by(id: id)
+    pet.destroy
+    flash[:danger] = "Product deleted"
+    redirect_to "/"
   end
 
   def edit
@@ -26,16 +32,6 @@ class PetsController < ApplicationController
   end
 
    def create
-
-    # name = params[:pet][:name]
-    # animal = params[:pet][:animal]
-    # breed = params[:pet][:breed]
-    # color = params[:pet][:color]
-    # weight = params[:pet][:weight]
-    # size = params[:pet][:size]
-    # micro_chip = params[:pet][:micro_chip]
-    # description = params[:pet][:description]
-    #throw "abc"
     @pet = Pet.new(pet_params)
     @pet.user_id = current_user.id 
     @pet.status = params[:status]
@@ -45,7 +41,7 @@ class PetsController < ApplicationController
     else
       render :new
     end
-  end  
+  end
 
   def show
     @pet = Pet.find(params[:id])

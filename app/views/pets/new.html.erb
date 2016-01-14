@@ -1,5 +1,5 @@
 <h2>Create a post for your <%= @status %> pet</h2>
-<%= form_for @pet, url: pets_path(status: @status) do |f| %>
+<%= form_for @pet, url: pets_path(status: @status), :html => {:multipart => true} do |f| %>
 
 <div>
  <h3> <%= f.label :name %></h3>
@@ -43,7 +43,7 @@
 
 <div>
   <h3><%= f.label :image %></h3>
-  <%= f.text_field :image %>
+  <%= f.file_field :image %>
 </div>
 <br>
 <div>
