@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228000729) do
+ActiveRecord::Schema.define(version: 20160118005429) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "animal",       limit: 255
@@ -23,14 +23,15 @@ ActiveRecord::Schema.define(version: 20151228000729) do
     t.text     "description",  limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "latitude",                   precision: 10
-    t.decimal  "longitude",                  precision: 10
+    t.float    "latitude",     limit: 24
+    t.float    "longitude",    limit: 24
     t.string   "cross_street", limit: 255
     t.string   "status",       limit: 255
     t.boolean  "resolved"
     t.string   "image",        limit: 255
     t.string   "name",         limit: 255
     t.integer  "user_id",      limit: 4
+    t.string   "location",     limit: 255
   end
 
   create_table "users", force: :cascade do |t|

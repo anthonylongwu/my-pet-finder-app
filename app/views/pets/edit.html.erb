@@ -1,4 +1,6 @@
-<h2>Create a post for your <%= @status %> pet</h2>
+<%= form_tag "/pets/#{@pet.id}", method: :patch do %>
+
+<h2>Edit a post for your <%= @status %> pet</h2>
 <%= form_for @pet, url: pets_path(status: @status), :html => {:multipart => true} do |f| %>
 
 <div>
@@ -52,7 +54,8 @@
 </div>
 <br>
 <div>
-  <%= f.submit "Click Here To Submit Your Pet Ad" %>
+  <%= f.submit "Click Here To Update Your Pet Ad" %>
 </div>
 
+<% end %>
 <% end %>

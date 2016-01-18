@@ -1,6 +1,4 @@
-
-                                
-
+<p>Status: <%= @pet.status %></p>
 <p>Pet's name: <%= @pet.name %></p>
 <p>Type of animal: <%= @pet.animal %></p>
 <p>Breed of pet: <%= @pet.breed %></p>
@@ -8,8 +6,15 @@
 <p>Weight: <%= @pet.weight %></p>
 <p>Microchip? <%= @pet.micro_chip %></p>
 <p>Description: <%= @pet.description %></p>  
-<p>Photo: <%= image_tag (@pet.image) %></p>  
-<h4><%= link_to "Delete", "/pets/#{@pet.id}", method: :delete %></h4>
+<p>Photo: <%= image_tag (@pet.image) %></p> 
+<div id="map">
+
+</div>
+<p>Submitted by: <%= @pet.user.email %></p>
+  <% if current_user.id == @pet.user_id %>  
+    <h4><%= link_to "Delete", "/pets/#{@pet.id}", method: :delete %></h4>
+    <h4><%= link_to "Edit", "/pets/#{@pet.id}/edit", method: :edit %><h4>
+  <% end %>
 
     <aside class="call-to-action bg-primary">
         <div class="container">
@@ -22,3 +27,28 @@
             </div>
         </div>
     </aside>
+
+    
+
+
+    <script type="text/javascript">
+  
+
+var map;
+function initMap() {
+  var myLatLng = {lat: <%= @pet.latitude %>, lng: <%= @pet.longitude%>};
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: myLatLng,
+    zoom: 8
+  });
+ var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Find Me!'
+  });
+
+}
+  </script>
+       <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcuHdZLsnxKKRI3mieJUYVcxtuzRm1qf8 &callback=initMap"></script>
+
+ 

@@ -37,6 +37,8 @@ gem 'fog'
 gem 'fog-aws'
 
 gem 'mini_magick'
+
+gem 'geocoder'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
