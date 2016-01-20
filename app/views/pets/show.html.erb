@@ -1,69 +1,43 @@
 <div class="row">
-  <div class="col-md-6">
-  <table class="table table-striped table-bordered">
-    <tr>
-      <td>Status:</td>
-      <td><%= @pet.status %></td>
-    </tr>
-      <tr>
-      <td>Pet's Name:</td>
-      <td><%= @pet.name %></td>
-    </tr>
-      <tr>
-      <td>Type Of Animal:</td>
-      <td><%= @pet.animal %></td>
-    </tr>
-      <tr>
-      <td>Breed:</td>
-      <td><%= @pet.breed %></td>
-    </tr>  <tr>
-      <td>Size:</td>
-      <td><%= @pet.size %></td>
-    </tr>  <tr>
-      <td>Weight:</td>
-      <td><%= @pet.weight %></td>
-    </tr>  <tr>
-      <td>Micro Chip:</td>
-      <td><%= @pet.micro_chip %></td>
-    </tr>  <tr>
-      <td>Description:</td>
-      <td><%= @pet.description %></td>
-    </tr>
-      <tr>
-      <td>Submitted By:</td>
-      <td><%= @pet.user.email %></td>
-    </tr>
-
-    <% if current_user && (current_user.id == @pet.user_id )%>  
-      <tr>
-        <td>Delete</td>
-        <td><%= link_to "Delete", "/pets/#{@pet.id}", method: :delete %></td>
-      </tr>
-      <tr>
-        <td>Edit</td>
-        <td><%= link_to "Edit", "/pets/#{@pet.id}/edit", method: :edit %></td>
-      </tr>
-    <% end %>
-
-    </table>
-    <div class="col-md-6">
-      <div id="map">
-
-      </div> 
-    </div>
+  <div class="col-xs-4 col-xs-offset-4 text-center">
+    <h1>Pet's Name:<%= @pet.name %></h1>
   </div>
+</div>
+
+<div class="row">
   <div class="col-md-6">
-    <div class="img-responsive">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul>
+          <li><b>Status:</b><%= @pet.status %></li>
+          <li><b>Type Of Animal</b>:<%= @pet.animal %></li>
+          <li><b>Breed</b>:<%= @pet.breed %></li>
+          <li><b>Size</b>:<%= @pet.size %></li>
+          <li><b>Weight</b>:<%= @pet.weight %></li>
+          <li><b>Micro Chip</b>:<%= @pet.micro_chip %></li>
+          <li><b>Description</b>:<%= @pet.description %></li>
+          <li><b>Submitted By</b>:<%= @pet.user.email %></li>
+        </ul>
+        <% if current_user && (current_user.id == @pet.user_id )%>  
+            <%= link_to "Delete", "/pets/#{@pet.id}", method: :delete %>
+            <%= link_to "Edit", "/pets/#{@pet.id}/edit", method: :edit %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
       <% @pet.pet_images.each do |pet_image| %>
-        <div class="row">
-          <%= image_tag(pet_image.name) %>  
+        <div class="col-xs-4">
+          <%= image_tag(pet_image.name, :class => "img-responsive doggy-img") %>  
         </div>
       <% end %> 
     </div>
   </div>
-</div>
-  
+  <div class="col-md-6">
+    <div id="map">
 
+    </div> 
+  </div>
+</div>
 
   <aside class="call-to-action bg-primary">
     <div class="container">
@@ -84,6 +58,7 @@
 
 
     var map;
+    
     function initMap() {
       var myLatLng = {lat: <%= @pet.latitude %>, lng: <%= @pet.longitude%>};
       map = new google.maps.Map(document.getElementById('map'), {

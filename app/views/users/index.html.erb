@@ -1,27 +1,41 @@
 <!-- #This is where you need to paste in the lost pet landing page -->
 <!-- Header -->
     <header id="top" class="header">
-        <div class="text-vertical-center">
+        <div class="text-vertical-center row">
             <h1>Mypetfindr</h1>
             <h3>Let Us Connect Lost Pets With Owners</h3>
             <br>
-            <a href="/pets/new?status=lost" class="btn btn-dark btn-lg">Lost A Pet?</a>
-            <a href="/pets/new?status=found" class="btn btn-dark btn-lg">Found A Pet?</a>
+            <div class="col-xs-12">
+                <a href="/pets/new?status=lost" class="btn btn-dark btn-lg">Lost A Pet?</a>
+                <a href="/pets/new?status=found" class="btn btn-dark btn-lg">Found A Pet?</a>
+            </div>
+            <div class="col-xs-6 col-xs-offset-3">
+                <div id="search-box">
+                    <%= form_tag '/pets/search', method: :post do %>
+                       <span>
+                            <%= text_field_tag :search %>
+                      </span>
+                      <span>
+                            <%= hidden_field_tag :status, params[:status] %>
+                      </span>
+                      <span>
+                            <%= submit_tag "Search Posts", class: "btn btn-dark btn-lg" %>
+                      </span>
+                    <% end %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div class="main-page-subheader">
+                    <h2>Easily post your lost pet ad, or post if you've seen a wandering pet!</h2>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
  <!-- About -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Easily post your lost pet ad, or post if you've seen a wandering pet!</h2>
-                    <!-- <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p> -->
-                </div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
+    <section id="about" class="about"><!-- 
+    </section> -->
 
     <!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->

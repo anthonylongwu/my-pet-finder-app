@@ -12,19 +12,7 @@
     
 <% end %>
     <!-- Navigation -->
-<div id="search-box">
-    <%= form_tag '/pets/search', method: :post do %>
-       <span>
-            <%= text_field_tag :search %>
-      </span>
-      <span>
-            <%= hidden_field_tag :status, params[:status] %>
-      </span>
-      <span>
-            <%= submit_tag "Search Posts", class: "btn btn-dark btn-lg" %>
-      </span>
-    <% end %>
-</div>
+
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">Menu</a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
@@ -59,9 +47,7 @@
         </ul>
     </nav>
 
-<div class="heading-buffer">
     <%= yield %>
-</div>
    
     <!-- Footer -->
     <footer>
