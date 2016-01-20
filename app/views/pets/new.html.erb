@@ -1,58 +1,67 @@
-<h2>Create a post for your <%= @status %> pet</h2>
-<%= form_for @pet, url: pets_path(status: @status), :html => {:multipart => true} do |f| %>
 
-<div>
- <h3> <%= f.label :name %></h3>
-  <%= f.text_field :name %>
-</div>
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
 
-<div>
- <h3> <%= f.label :animal %></h3>
-  <%= f.text_field :animal %>
-</div>
 
-<div>
-  <h3><%= f.label :breed %></h3>
-  <%= f.text_field :breed %>
-</div>
+    <h2>Create a post for your <%= @status %> pet</h2>
+    <%= form_for @pet, url: pets_path(status: @status), :html => {:multipart => true} do |f| %>
 
-<div>
- <h3><%= f.label :color %></h3>
-  <%= f.text_field :color %>
-</div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
 
-<div>
-  <h3><%= f.label :size %></h3>
-  <%= f.text_field :size %>
-</div>
+    <div class="form-group">
+      <%= f.label :animal %>
+      <%= f.text_field :animal, class: "form-control" %>
+    </div>
 
-<div>
-  <h3><%= f.label :weight %> (Can be approx.)</h3>
-  <%= f.text_field :weight %>
-</div>
+    <div class="form-group">
+      <%= f.label :breed %>
+      <%= f.text_field :breed, class: "form-control" %>
+    </div>
 
-<div>
-  <h3><%= f.label :micro_chip %></h3>
-  <%= f.check_box :micro_chip %>
-</div>
+    <div class="form-group">
+     <%= f.label :color %>
+      <%= f.text_field :color, class: "form-control" %>
+    </div>
 
-<div>
-  <h3><%= f.label :description %></h3>
-  <%= f.text_area :description %>
-</div>
+    <div class="form-group">
+      <%= f.label :size %>
+      <%= f.text_field :size, class: "form-control" %>
+    </div>
 
-<div>
-  <h3><%= f.label :location %></h3>
-  <%= f.text_area :location %>
-</div>
+    <div class="form-group">
+      <%= f.label :weight %> (Can be approx.)
+      <%= f.text_field :weight, class: "form-control" %>
+    </div>
 
-<div>
-  <h3><%= f.label :image %></h3>
-  <%= f.file_field :image %>
-</div>
-<br>
-<div>
-  <%= f.submit "Click Here To Submit Your Pet Ad" %>
-</div>
+    <div class="checkbox">
+      <%= f.check_box :micro_chip %>
+      <%= f.label :micro_chip %>
+    </div>
 
-<% end %>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :location %>
+      <%= f.text_area :location, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :pet_images %>
+      <%= f.file_field :pet_images, multiple: true, class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group">
+      <%= f.submit "Click Here To Submit Your Pet Ad", class: "btn btn-default"%>
+    </div>
+
+    <% end %>
+  </div>
+</div>

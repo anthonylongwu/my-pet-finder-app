@@ -34,31 +34,28 @@ class PetsController < ApplicationController
   def update
     id = params[:id]
     pet = Pet.find_by(id: id)
-    # name = params[:name]
-    # animal = params[:animal]
-    # breed = params[:breed]
-    # color = params[:color]
-    # size = params[:size]
-    # weight = params[:weight]
-    # micro_chip = params[:micro_chip]
-    # description = params[:description]
-    # image = params[:image]
     pet.update(pet_params)
     flash[:notice] = "Post Updated"
     redirect_to "/pets/#{pet.id}"
   end
 
    def create
-    @pet = Pet.new(pet_params)
+    new_pet = params[:pet]
+    new_pet_images = params[:pet][:pet_images]
+    @pet = Pet.new(name: new_pet["name"], animal: new_pet["animal"], breed: new_pet["breed"], color: new_pet["color"], weight: new_pet["weight"], size: new_pet["size"], micro_chip: new_pet ["micro_chip"], description: new_pet["description"], status: new_pet["status"], location: new_pet["location"])
     @pet.user_id = current_user.id 
     @pet.status = params[:status]
-      if @pet.save
-      flash[:success] = "Post Created"
-      redirect_to "/pets/#{@pet.id}"
-        else
-      render :new
+    
+    if @pet.save
+      new_pet_images.each do |pet_image|
+        PetImage.create(name: pet_image, pet_id: @pet.id )
       end
+      flash[:success] = "Pet Created"
+      redirect_to "/pets/#{@pet.id}"
+      else
+      render :new
     end
+  end
 
   def show
     @pet = Pet.find(params[:id])
@@ -76,6 +73,6 @@ class PetsController < ApplicationController
 private
 
   def pet_params
-    params.require(:pet).permit(:name, :animal, :breed, :color, :weight, :size, :micro_chip, :description, :status, :image, :location)
+    params.require(:pet).permit(:name, :animal, :breed, :color, :weight, :size, :micro_chip, :description, :status, :location, :pet_images)
   end
 end

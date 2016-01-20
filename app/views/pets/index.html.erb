@@ -8,62 +8,57 @@
         </div>
     </header>
       
-  <%= form_tag '/pets/search', method: :post do %>
-  <div>
-  <%= label_tag :search %>
-    <%= text_field_tag :search %>
-  </div>
 
-  <div>
-    <%= hidden_field_tag :status, params[:status] %>
-  </div>
-
-  <div>
-    <%= submit_tag "Search" %>
-  </div>
-<% end %>
-     
-       
+         
         
            <!-- Portfolio -->
+
     <section id="portfolio" class="portfolio">
+              <aside class="call-to-action bg-primary">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h3>All <%= params[:status].capitalize %> Pets</h3>
+                        </div>
+                    </div>
+                </div>
+            </aside>
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>All <%= params[:status].capitalize %> Pets</h2>
+
                     <hr class="small">
                     <div class="row">
                      <% @pets.each do |pet| %>
                         <div class="col-md-6">
                        
-                                <a href="/pets/<%= pet.id %>">
-                            <div class="portfolio-item boring_border">
-                                  <p>Name: <%= pet.name %></p> 
-                                  <p>Animal Type: <%= pet.animal %></p> 
-                                  <p>Breed of Pet: <%= pet.breed %></p> 
-                                  <p>Color: <%= pet.color %></p> 
-                                  <p>Size of Pet: <%= pet.size %></p> 
-                                  <p>Weight: <%= pet.weight %></p> 
-                                  <p>Micro Chip? <%= pet.micro_chip %></p> 
-                                  <p>Description: <%= pet.description %></p> 
-                                  <p><%= pet.image %></p>
-                                  <p>Submitted by: <%= pet.user.email %></p>
-                                 
-                                     
+                          <a href="/pets/<%= pet.id %>">
+                            <div class="portfolio-item">
+                              <% if pet.pet_images.any? %>
+                                <%= image_tag pet.pet_images.first.name, class: "img-responsive format_pet_image boring_border" %>
+                              <% end %>
                             </div>
-                                </a>
+                          </a>
                            
                         </div>
                          <% end %>  
                        
                     </div>
                     <!-- /.row (nested) -->
-                    <a href="/pets/?status=found" class="btn btn-dark">Search Found Pets</a>
-                    <a href="/pets/?status=lost" class="btn btn-dark">Search Lost Pets</a>
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
             <!-- /.row -->
+              <aside class="call-to-action bg-primary">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h3>Search Lost Or Found Pet Ads.</h3>
+                            <a href="/pets/?status=found" class="btn btn-lg btn-light">Search Found Pets</a>
+                            <a href="/pets/?status=lost" class="btn btn-lg btn-dark">Search Lost Pets</a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
         </div>
         <!-- /.container -->
     </section>

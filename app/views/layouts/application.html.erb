@@ -5,11 +5,26 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
 </head>
 <body>  
 <% flash.each do |message| %>
-    <% end %>
+    
+<% end %>
     <!-- Navigation -->
+<div id="search-box">
+    <%= form_tag '/pets/search', method: :post do %>
+       <span>
+            <%= text_field_tag :search %>
+      </span>
+      <span>
+            <%= hidden_field_tag :status, params[:status] %>
+      </span>
+      <span>
+            <%= submit_tag "Search Posts", class: "btn btn-dark btn-lg" %>
+      </span>
+    <% end %>
+</div>
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">Menu</a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
@@ -38,14 +53,15 @@
             <% end %>
        
 
-            <li>
+            <!-- <li>
                 <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
-            </li>
+            </li> -->
         </ul>
     </nav>
 
-    
-<%= yield %>
+<div class="heading-buffer">
+    <%= yield %>
+</div>
    
     <!-- Footer -->
     <footer>
@@ -73,7 +89,7 @@
                         </li>
                     </ul> -->
                     <hr class="small">
-                    <p class="text-muted">Copyright &copy; Anthony Long Wu 2015</p>
+                    <p class="text-muted">Copyright &copy; Anthony Long Wu, 2016</p>
                 </div>
             </div>
         </div>
