@@ -27,7 +27,7 @@
     </div>
     <div class="row">
       <% @pet.pet_images.each do |pet_image| %>
-        <div class="col-xs-4">
+        <div class="col-md-6">
           <%= image_tag(pet_image.name, :class => "img-responsive doggy-img") %>  
         </div>
       <% end %> 
