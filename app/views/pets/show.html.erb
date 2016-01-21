@@ -15,6 +15,7 @@
           <li><b>Size</b>:<%= @pet.size %></li>
           <li><b>Weight</b>:<%= @pet.weight %></li>
           <li><b>Micro Chip</b>:<%= @pet.micro_chip %></li>
+          <li><b>Color</b>:<%= @pet.color %></li>
           <li><b>Description</b>:<%= @pet.description %></li>
           <li><b>Submitted By</b>:<%= @pet.user.email %></li>
         </ul>
@@ -37,6 +38,7 @@
 
     </div> 
   </div>
+</div>
 </div>
 
   <aside class="call-to-action bg-primary">
@@ -70,6 +72,8 @@
         map: map,
         title: 'Find Me!'
       });
+
+
 
     }
   </script>
