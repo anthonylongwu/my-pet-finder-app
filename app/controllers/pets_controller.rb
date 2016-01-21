@@ -64,7 +64,7 @@ class PetsController < ApplicationController
   def search
     @pets =  
     search_term = params[:search]
-    @pets = Pet.where("name LIKE ? OR description LIKE ? OR size LIKE ? or animal LIKE ? or breed LIKE ?", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
+    @pets = Pet.where("name LIKE ? OR color LIKE ? OR size LIKE ? or animal LIKE ? or breed LIKE ?", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
     render :index
   end
 
