@@ -50,5 +50,8 @@ test:
 production:
   <<: *default
   database: my-pet-finder-app_production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   username: my-pet-finder-app
   password: <%= ENV['MY-PET-FINDER-APP_DATABASE_PASSWORD'] %>
