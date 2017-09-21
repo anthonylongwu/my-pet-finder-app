@@ -9,15 +9,15 @@
     <div class="row">
       <div class="col-xs-12">
         <ul>
-          <li><b>Status:</b><%= @pet.status %></li>
-          <li><b>Type Of Animal</b>:<%= @pet.animal %></li>
-          <li><b>Breed</b>:<%= @pet.breed %></li>
-          <li><b>Size</b>:<%= @pet.size %></li>
-          <li><b>Weight</b>:<%= @pet.weight %></li>
-          <li><b>Micro Chip</b>:<%= @pet.micro_chip %></li>
-          <li><b>Color</b>:<%= @pet.color %></li>
-          <li><b>Description</b>:<%= @pet.description %></li>
-          <li><b>Submitted By</b>:<%= @pet.user.email %></li>
+          <li><b>Status: </b><%= @pet.status %></li>
+          <li><b>Type Of Animal</b>: <%= @pet.animal %></li>
+          <li><b>Breed</b>: <%= @pet.breed %></li>
+          <li><b>Size</b>: <%= @pet.size %></li>
+          <li><b>Weight</b>: <%= @pet.weight %></li>
+          <li><b>Micro Chip</b>: <%= @pet.micro_chip %></li>
+          <li><b>Color</b>: <%= @pet.color %></li>
+          <li><b>Description</b>: <%= @pet.description %></li>
+          <li><b>Submitted By</b>: <%= @pet.user.email %></li>
         </ul>
         <% if current_user && (current_user.id == @pet.user_id )%>  
             <%= link_to "Delete", "/pets/#{@pet.id}", method: :delete %>
